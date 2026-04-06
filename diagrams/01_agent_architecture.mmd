@@ -1,0 +1,13 @@
+flowchart TD
+    User["👤 User / Environment"]
+    LLM["🧠 LLM (Reasoning)"]
+    Tools["🔧 Tools & APIs"]
+    Memory["🗄️ Memory Store"]
+
+    User -->|Input / Observation| LLM
+    LLM -->|Tool Call| Tools
+    Tools -->|Result| LLM
+    LLM -->|Store Interaction| Memory
+    Memory -->|Retrieve Context| LLM
+    LLM -->|Response| User
+

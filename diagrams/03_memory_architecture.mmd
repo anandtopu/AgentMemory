@@ -1,0 +1,26 @@
+flowchart LR
+    subgraph AgentCore["Agent Core"]
+        LLM["🧠 LLM"]
+        Planner["📋 Planner"]
+    end
+
+    subgraph MemoryLayer["Memory Layer"]
+        CM["💬 Conversational Memory"]
+        SM["📚 Semantic Memory"]
+        PM["⚙️ Procedural Memory"]
+        EM["📅 Episodic Memory"]
+        SC["⚡ Semantic Cache"]
+    end
+
+    subgraph Tools["Tools"]
+        WebSearch["🌐 Web Search"]
+        CodeExec["💻 Code Executor"]
+        Calendar["📆 Calendar"]
+    end
+
+    User["👤 User"] --> LLM
+    LLM --> Planner
+    Planner --> Tools
+    Planner <--> MemoryLayer
+    LLM --> User
+

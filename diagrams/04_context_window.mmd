@@ -1,0 +1,13 @@
+graph LR
+    DB[("🗄️ Conversation DB")]
+    subgraph CTX["Context Window (finite!)"]
+        Sys["System Prompt"]
+        H1["Turn 1"]
+        H2["Turn 2"]
+        Hdots["..."]
+        Hn["Turn N"]
+        NewMsg["New Message"]
+    end
+    DB -->|"Retrieve last N turns"| H1
+    Note["⚠️ Older turns get truncated or summarized"]
+

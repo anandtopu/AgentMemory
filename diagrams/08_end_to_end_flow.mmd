@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant U as 👤 User
+    participant A as 🤖 Agent
+    participant MM as 🗂️ Memory Manager
+    participant Cache as ⚡ Semantic Cache
+    participant DB as 🗄️ Memory DB
+    participant LLM as 🧠 LLM
+
+    U->>A: "Book the first restaurant"
+    A->>Cache: Check cache
+    Cache-->>A: Cache MISS
+    A->>MM: build_context(query)
+    MM->>DB: Load recent history
+    MM->>DB: Retrieve relevant facts
+    DB-->>MM: History + Facts
+    MM-->>A: Enriched context
+    A->>LLM: System prompt + context + query
+    LLM-->>A: "Booking Ristorante La Piazza at 7 PM..."
+    A->>DB: save_turn (user + assistant)
+    A->>Cache: cache_set(query, reply)
+    A->>DB: log_tool_call (if any)
+    A-->>U: "Booking confirmed at Ristorante La Piazza!"
+

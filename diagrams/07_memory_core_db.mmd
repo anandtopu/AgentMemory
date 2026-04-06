@@ -1,0 +1,24 @@
+flowchart TD
+    User["👤 User"]
+
+    subgraph AgentSystem["AI Agent System"]
+        LLM["🧠 LLM\nReasoning engine"]
+        Emb["🔢 Embedding Model\nSemantic representation"]
+        Mgr["🗂️ Memory Manager\nRead / Write / Delete / Update"]
+    end
+
+    subgraph MemoryCore["Memory Core — Database"]
+        EpDB[("📅 Episodic Store\nTimestamped messages")]
+        SemDB[("📚 Semantic Store\nVector knowledge base")]
+        ProcDB[("⚙️ Procedural Store\nTool call logs")]
+        CacheDB[("⚡ Semantic Cache\nQuery → Answer cache")]
+    end
+
+    User -->|Sends input| LLM
+    LLM -->|Embeds queries & facts| Emb
+    LLM -->|Read/Write memory| Mgr
+    Mgr -->|Store/Retrieve turns| EpDB
+    Mgr -->|Store/Retrieve facts| SemDB
+    Mgr -->|Log/Retrieve actions| ProcDB
+    Mgr -->|Cache/Lookup responses| CacheDB
+

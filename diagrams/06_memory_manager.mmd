@@ -1,0 +1,14 @@
+flowchart TD
+    Inp["Agent Input"] --> MM["🗂️ Memory Manager"]
+
+    MM -->|Write| EpDB[("📅 Episodic DB\nSQLite / Postgres")]
+    MM -->|Write| SemDB[("📚 Semantic DB\nChromaDB / pgvector")]
+    MM -->|Write| ProcDB[("⚙️ Procedural DB\nSQLite")]
+    MM -->|Read/Write| Cache[("⚡ Semantic Cache\nIn-memory / Redis")]
+
+    EpDB -->|Retrieve history| MM
+    SemDB -->|Retrieve knowledge| MM
+    ProcDB -->|Retrieve workflow| MM
+
+    MM -->|Enriched Context| LLM["🧠 LLM"]
+
