@@ -2,8 +2,6 @@
 
 > **Published:** April 5, 2026 | **Author:** *Anand Topu* | **Tags:** `AI Agents`, `LLM`, `Memory`, `RAG`, `Python`
 
-> 📌 **Medium Publishing Note:** All diagrams are saved as PNG files in the `diagrams/` folder next to this file. When importing to Medium, upload each PNG image manually using Medium's image upload button and replace the placeholder image slots. Diagram files: `diagrams/01_agent_architecture.png` → `diagrams/08_end_to_end_flow.png`.
-
 ---
 
 ## Table of Contents
