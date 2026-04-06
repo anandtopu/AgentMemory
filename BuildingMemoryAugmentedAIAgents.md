@@ -1,6 +1,6 @@
 # Building Memory-Augmented AI Agents: A Complete Guide
 
-> **Published:** April 5, 2026 | **Author:** *Anand Topu* | **Tags:** `AI Agents`, `LLM`, `Memory`, `RAG`, `Python`
+> **Published:** April 5, 2026 | **Author:** *Anand Topu* 
 
 ---
 
